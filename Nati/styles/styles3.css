@@ -1,0 +1,80 @@
+body {
+    background: linear-gradient(to bottom right, #fceff9, #ffe0f0);
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    padding: 50px;
+    color: #333;
+}
+
+h2 {
+    font-size: 2.5em;
+    color: #c9184a;
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s ease-in;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+video {
+    border: 5px solid #ffb3c6;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    width: 80%;
+    max-width: 720px;
+    animation: fadeIn 2s ease-in;
+}
+
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.boton-regalo {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.4em;
+    padding: 15px 30px;
+    border-radius: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.boton-regalo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #fcb69f, #ffecd2);
+}
+
+.boton-volver {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: #ff6f61;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, text-shadow 0.2s ease;
+}
+
+.boton-volver:hover {
+    transform: scale(1.2);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
