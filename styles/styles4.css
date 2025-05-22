@@ -1,9 +1,9 @@
 body {
-    background: linear-gradient(to bottom right, #fff0f5, #ffe4e1);
+    background: linear-gradient(to right, #ffdde1, #ee9ca7);
     font-family: 'Segoe UI', sans-serif;
     text-align: center;
-    padding: 80px;
-    color: #5c0032;
+    padding: 50px;
+    color: #333;
 }
 
 h1 {
@@ -19,12 +19,15 @@ p {
     margin-right: auto;
 }
 
+
 .box {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.7);
+    /* Blanco translúcido */
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     display: inline-block;
+
 }
 
 .emoji {
@@ -33,9 +36,17 @@ p {
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .boton-volver {
@@ -54,4 +65,33 @@ p {
 .boton-volver:hover {
     transform: scale(1.2);
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-in forwards;
+    opacity: 0;
+}
+
+.fade-out {
+    animation: fadeOut 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
 }

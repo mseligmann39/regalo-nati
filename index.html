@@ -1,18 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
-<head> 
+
+<head>
     <meta charset="UTF-8">
     <title>¡Feliz cumpleaños, mi amor!</title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
-<body>
+
+<body class="fade-in">
 
     <h1>¡Hola, mi amor! 💖</h1>
     <p>Hoy es un día muy especial y te preparé una pequeña sorpresa...</p>
-    <form action="felicitaciones.html" method="get">
-        <button class="btn">Haz clic aquí 🎁</button>
-    </form>
+    <a href="felicitaciones.html" class="btn">
+        Haz clic aquí 🎁
+    </a>
 
     <script src="scripts.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.classList.add("fade-in");
+
+            const links = document.querySelectorAll("a, form[action]");
+            links.forEach(link => {
+                link.addEventListener("click", (e) => {
+                    const target = e.currentTarget;
+                    // Evita si es _blank o ancla interna
+                    if (target.target === "_blank" || target.href?.startsWith("#")) return;
+
+                    e.preventDefault();
+                    document.body.classList.add("fade-out");
+
+                    setTimeout(() => {
+                        if (target.tagName === "A") {
+                            window.location = target.href;
+                        } else if (target.tagName === "FORM") {
+                            window.location = target.action;
+                        }
+                    }, 400); // mismo tiempo que .fade-out
+                });
+            });
+        });
+    </script>
+
 </body>
+
 </html>

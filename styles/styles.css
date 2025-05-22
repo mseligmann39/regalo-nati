@@ -18,21 +18,61 @@ p {
 }
 
 .btn {
-    background-color: #fff;
-    border: 2px solid #ee9ca7;
+    display: inline-block;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.4em;
     padding: 15px 30px;
-    font-size: 1.2em;
-    border-radius: 10px;
-    cursor: pointer;
+    border-radius: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
+    font-weight: bold;
 }
 
 .btn:hover {
-    background-color: #ee9ca7;
-    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #fcb69f, #ffecd2);
 }
 
 @keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(-30px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-in forwards;
+    opacity: 0;
+}
+
+.fade-out {
+    animation: fadeOut 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
 }

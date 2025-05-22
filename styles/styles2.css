@@ -1,9 +1,9 @@
 body {
-    background-color: #fff0f6;
+    background: linear-gradient(to right, #ffdde1, #ee9ca7);
     font-family: 'Segoe UI', sans-serif;
-    padding: 50px;
     text-align: center;
-    color: #444;
+    padding: 50px;
+    color: #333;
 }
 
 h2 {
@@ -31,7 +31,7 @@ p {
 .gallery img {
     width: 250px;
     border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
 }
 
@@ -47,14 +47,14 @@ p {
     font-size: 1.4em;
     padding: 15px 30px;
     border-radius: 40px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
     font-weight: bold;
 }
 
 .boton-regalo:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     background: linear-gradient(135deg, #fcb69f, #ffecd2);
 }
 
@@ -77,6 +77,42 @@ p {
 }
 
 @keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(30px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-in forwards;
+    opacity: 0;
+}
+
+.fade-out {
+    animation: fadeOut 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
 }

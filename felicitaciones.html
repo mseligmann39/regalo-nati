@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Tu sorpresa 🎉</title>
     <link rel="stylesheet" href="styles/styles2.css">
 </head>
+
 <body>
 
     <h2>¡Feliz cumpleaños, mi Nati! 🎂</h2>
     <p>
-        Hoy celebro que existes, que estás en mi vida, que sos mi amor y cumplís años. <br>
+        Hoy celebro que existis, que estás en mi vida, que sos mi amor y cumplís años. <br>
         Gracias por todos los momentos lindos que me haces pasar y por todo lo que nos espera. <br>
         Te amo más que a nada en este mundo. 💕 <br>
         Voy a estar en todos tus cumpleaños, haciéndote feliz. 💕
@@ -29,5 +31,32 @@
     </button>
 
     <script src="scripts.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.classList.add("fade-in");
+
+            const links = document.querySelectorAll("a, form[action]");
+            links.forEach(link => {
+                link.addEventListener("click", (e) => {
+                    const target = e.currentTarget;
+                    // Evita si es _blank o ancla interna
+                    if (target.target === "_blank" || target.href?.startsWith("#")) return;
+
+                    e.preventDefault();
+                    document.body.classList.add("fade-out");
+
+                    setTimeout(() => {
+                        if (target.tagName === "A") {
+                            window.location = target.href;
+                        } else if (target.tagName === "FORM") {
+                            window.location = target.action;
+                        }
+                    }, 400); // mismo tiempo que .fade-out
+                });
+            });
+        });
+    </script>
+
 </body>
+
 </html>

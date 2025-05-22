@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Tu regalo especial 🎁</title>
     <link rel="stylesheet" href="styles/styles3.css">
 </head>
+
 <body>
 
     <h2>🎬 Tu regalo especial</h2>
@@ -24,5 +26,32 @@
     </button>
 
     <script src="scripts.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.classList.add("fade-in");
+
+            const links = document.querySelectorAll("a, form[action]");
+            links.forEach(link => {
+                link.addEventListener("click", (e) => {
+                    const target = e.currentTarget;
+                    // Evita si es _blank o ancla interna
+                    if (target.target === "_blank" || target.href?.startsWith("#")) return;
+
+                    e.preventDefault();
+                    document.body.classList.add("fade-out");
+
+                    setTimeout(() => {
+                        if (target.tagName === "A") {
+                            window.location = target.href;
+                        } else if (target.tagName === "FORM") {
+                            window.location = target.action;
+                        }
+                    }, 400); // mismo tiempo que .fade-out
+                });
+            });
+        });
+    </script>
+
 </body>
+
 </html>
