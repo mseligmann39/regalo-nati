@@ -5,6 +5,26 @@
     <meta charset="UTF-8">
     <title>Tu sorpresa 🎉</title>
     <link rel="stylesheet" href="styles/styles2.css">
+
+    <!-- Swiper CSS (carrusel) -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <style>
+        /* Opcional – ajustes rápidos para el carrusel */
+        .swiper {
+            width: 100%;
+            max-width: 480px;
+            height: auto;
+            margin: 2rem auto;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+    </style>
 </head>
 
 <body>
@@ -17,13 +37,28 @@
         Voy a estar en todos tus cumpleaños, haciéndote feliz. 💕
     </p>
 
-    <div class="gallery">
-        <img src="images/foto1.jpg" alt="Nosotros 1">
-        <img src="images/foto2.jpg" alt="Nosotros 2">
-        <img src="images/foto3.jpg" alt="Nosotros 3">
+    <!-- 🖼️ Carrusel de imágenes -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="images/foto (1).png" alt="Nosotros 1"></div>
+            <div class="swiper-slide"><img src="images/foto (2).png" alt="Nosotros 2"></div>
+            <div class="swiper-slide"><img src="images/foto (3).png" alt="Nosotros 3"></div>
+            <div class="swiper-slide"><img src="images/foto (4).png" alt="Nosotros 4"></div>
+            <div class="swiper-slide"><img src="images/foto (5).png" alt="Nosotros 5"></div>
+            <div class="swiper-slide"><img src="images/foto (6).png" alt="Nosotros 6"></div>
+            <div class="swiper-slide"><img src="images/foto (7).png" alt="Nosotros 7"></div>
+            <div class="swiper-slide"><img src="images/foto (8).png" alt="Nosotros 8"></div>
+            <div class="swiper-slide"><img src="images/foto (9).png" alt="Nosotros 9"></div>
+            <div class="swiper-slide"><img src="images/foto (10).png" alt="Nosotros 10"></div>
+        </div>
+        
+        <!-- Controles -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
     </div>
 
-    <br><br><br><br>
+    <br><br><br>
     <a href="sorpresa.html" class="boton-regalo">🎁 Para vos</a>
 
     <button onclick="window.history.back()" class="boton-volver" title="Volver">
@@ -31,15 +66,31 @@
     </button>
 
     <script src="scripts.js"></script>
+
+    <!-- Swiper JS (carrusel) -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             document.body.classList.add("fade-in");
 
+            // Inicializa el carrusel
+            const swiper = new Swiper(".mySwiper", {
+                loop: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+
+            // Lógica existente de fade entre páginas
             const links = document.querySelectorAll("a, form[action]");
             links.forEach(link => {
                 link.addEventListener("click", (e) => {
                     const target = e.currentTarget;
-                    // Evita si es _blank o ancla interna
                     if (target.target === "_blank" || target.href?.startsWith("#")) return;
 
                     e.preventDefault();

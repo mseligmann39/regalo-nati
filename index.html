@@ -5,12 +5,21 @@
     <meta charset="UTF-8">
     <title>¡Feliz cumpleaños, mi amor!</title>
     <link rel="stylesheet" href="styles/styles.css">
+
+
 </head>
 
 <body class="fade-in">
 
+    <!-- Flores decorativas -->
+    <div class="flores-container">
+        <img src="images/Decoración/tulips.webp" alt="Flor izquierda" class="flor-izquierda">
+        <img src="images/Decoración/flor.webp" alt="Flor derecha" class="flor-derecha">
+    </div>
+
     <h1>¡Hola, mi amor! 💖</h1>
     <p>Hoy es un día muy especial y te preparé una pequeña sorpresa...</p>
+    <img src="images/Decoración/cat.webp" alt="Gato con regalo" class="cat-image">
     <a href="felicitaciones.html" class="btn">
         Haz clic aquí 🎁
     </a>
@@ -24,7 +33,6 @@
             links.forEach(link => {
                 link.addEventListener("click", (e) => {
                     const target = e.currentTarget;
-                    // Evita si es _blank o ancla interna
                     if (target.target === "_blank" || target.href?.startsWith("#")) return;
 
                     e.preventDefault();
@@ -36,7 +44,7 @@
                         } else if (target.tagName === "FORM") {
                             window.location = target.action;
                         }
-                    }, 400); // mismo tiempo que .fade-out
+                    }, 400);
                 });
             });
         });
