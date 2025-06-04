@@ -1,57 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Tu regalo especial 🎁</title>
-    <link rel="stylesheet" href="styles/styles3.css">
-</head>
+    <link rel="stylesheet" href="styles/styles3.css" />
+  </head>
 
-<body>
-
-    <h2>🎬 Tu regalo especial</h2>
-    <p>He preparado este pequeño video para recordar algunos momentos juntos ❤️</p>
+  <body>
+    <h2>🎬 Para la mejor novia del mundo</h2>
+    <p>Hice este video para recordar lindos momentos juntos ❤️</p>
 
     <video controls>
-        <source src="videos/video_cumple.mp4" type="video/mp4">
+      <source src="videos/video_cumple.mp4" type="video/mp4" />
     </video>
 
     <canvas id="particles"></canvas>
 
-    <br><br><br>
-    <a href="regalo.html" class="boton-regalo">🎁 Toca después de ver el video</a>
+    <br /><br /><br />
+    <a href="regalo.html" class="boton-regalo"
+      >🎁 Toca después de ver el video</a
+    >
 
     <button onclick="window.history.back()" class="boton-volver" title="Volver">
-        ⬅️
+      ⬅️
     </button>
 
     <script src="scripts.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            document.body.classList.add("fade-in");
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.classList.add("fade-in");
 
-            const links = document.querySelectorAll("a, form[action]");
-            links.forEach(link => {
-                link.addEventListener("click", (e) => {
-                    const target = e.currentTarget;
-                    // Evita si es _blank o ancla interna
-                    if (target.target === "_blank" || target.href?.startsWith("#")) return;
+        const links = document.querySelectorAll("a, form[action]");
+        links.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            const target = e.currentTarget;
+            // Evita si es _blank o ancla interna
+            if (target.target === "_blank" || target.href?.startsWith("#"))
+              return;
 
-                    e.preventDefault();
-                    document.body.classList.add("fade-out");
+            e.preventDefault();
+            document.body.classList.add("fade-out");
 
-                    setTimeout(() => {
-                        if (target.tagName === "A") {
-                            window.location = target.href;
-                        } else if (target.tagName === "FORM") {
-                            window.location = target.action;
-                        }
-                    }, 400); // mismo tiempo que .fade-out
-                });
-            });
+            setTimeout(() => {
+              if (target.tagName === "A") {
+                window.location = target.href;
+              } else if (target.tagName === "FORM") {
+                window.location = target.action;
+              }
+            }, 400); // mismo tiempo que .fade-out
+          });
         });
+      });
     </script>
-
-</body>
-
+  </body>
 </html>

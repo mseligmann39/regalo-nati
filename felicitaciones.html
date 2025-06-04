@@ -1,113 +1,124 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Tu sorpresa 🎉</title>
-    <link rel="stylesheet" href="styles/styles2.css">
+    <link rel="stylesheet" href="styles/styles2.css" />
 
     <!-- Swiper CSS (carrusel) -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
 
     <style>
-        /* Opcional – ajustes rápidos para el carrusel */
-        .swiper {
-            width: 100%;
-            max-width: 480px;
-            height: auto;
-            margin: 2rem auto;
-        }
+      /* Opcional – ajustes rápidos para el carrusel */
+      .swiper {
+        width: 100%;
+        max-width: 480px;
+        height: auto;
+        margin: 2rem auto;
+      }
 
-        .swiper-slide img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-        }
+      .swiper-slide img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <h2>¡Feliz cumpleaños, mi Nati! 🎂</h2>
     <p>
-        Hoy celebro que existis, que estás en mi vida, que sos mi amor y cumplís años. <br>
-        Gracias por todos los momentos lindos que me haces pasar y por todo lo que nos espera. <br>
-        Te amo más que a nada en este mundo. 💕 <br>
-        Voy a estar en todos tus cumpleaños, haciéndote feliz. 💕
+      Hoy celebro que existis, que estás en mi vida, que sos mi amor y cumplís
+      años. <br />
+      Gracias por todos los momentos lindos que me haces pasar y por todo lo que
+      nos espera. <br />
+      Te amo más que a nada en este mundo. 💕 <br />
+      Voy a estar en todos tus cumpleaños, haciéndote feliz. 💕
     </p>
 
-    <!-- 🖼️ Carrusel de imágenes -->
+    <!-- Swiper HTML -->
     <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="images/foto (1).png" alt="Nosotros 1"></div>
-            <div class="swiper-slide"><img src="images/foto (2).png" alt="Nosotros 2"></div>
-            <div class="swiper-slide"><img src="images/foto (3).png" alt="Nosotros 3"></div>
-            <div class="swiper-slide"><img src="images/foto (4).png" alt="Nosotros 4"></div>
-            <div class="swiper-slide"><img src="images/foto (5).png" alt="Nosotros 5"></div>
-            <div class="swiper-slide"><img src="images/foto (6).png" alt="Nosotros 6"></div>
-            <div class="swiper-slide"><img src="images/foto (7).png" alt="Nosotros 7"></div>
-            <div class="swiper-slide"><img src="images/foto (8).png" alt="Nosotros 8"></div>
-            <div class="swiper-slide"><img src="images/foto (9).png" alt="Nosotros 9"></div>
-            <div class="swiper-slide"><img src="images/foto (10).png" alt="Nosotros 10"></div>
-        </div>
-        
-        <!-- Controles -->
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+      <div class="swiper-wrapper" id="swiper-wrapper">
+        <!-- Las imágenes se agregan con JS -->
+      </div>
+
+      <!-- Controles -->
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
 
-    <br><br><br>
+    <style>
+      /* Contenedor de cada slide */
+      .swiper-slide {
+        height: 500px; /* Altura fija que coincide con la altura visible */
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Centra verticalmente */
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* Imagen centrada verticalmente con su centro alineado */
+      .swiper-slide img {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        max-height: 100%; /* Que no exceda el contenedor */
+        width: auto;
+        max-width: 100%;
+        display: block;
+      }
+      .swiper-button-next,
+      .swiper-button-prev,
+      .swiper-slide {
+        color: #ec2696d3; /* Cambia este valor al color que desees */
+      }
+      .swiper-pagination-bullet,
+      .swiper-pagination-bullet {
+        background-color: #b0388e89; /* Color de los puntitos inactivos */
+      }
+    </style>
+
+    <script>
+      // Agregar imágenes dinámicamente (adaptado a foto_01 a foto_10)
+      const wrapper = document.getElementById("swiper-wrapper");
+      for (let i = 1; i <= 10; i++) {
+        const num = i.toString().padStart(2, "0");
+        const slide = document.createElement("div");
+        slide.className = "swiper-slide";
+        slide.innerHTML = `<img src="images/foto_${num}.jpeg" alt="Nosotros ${i}">`;
+        wrapper.appendChild(slide);
+      }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".mySwiper", {
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        // Otras opciones que quieras agregar
+      });
+    </script>
+
+    <br /><br /><br />
     <a href="sorpresa.html" class="boton-regalo">🎁 Para vos</a>
 
     <button onclick="window.history.back()" class="boton-volver" title="Volver">
-        ⬅️
+      ⬅️
     </button>
 
     <script src="scripts.js"></script>
-
-    <!-- Swiper JS (carrusel) -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            document.body.classList.add("fade-in");
-
-            // Inicializa el carrusel
-            const swiper = new Swiper(".mySwiper", {
-                loop: true,
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-            });
-
-            // Lógica existente de fade entre páginas
-            const links = document.querySelectorAll("a, form[action]");
-            links.forEach(link => {
-                link.addEventListener("click", (e) => {
-                    const target = e.currentTarget;
-                    if (target.target === "_blank" || target.href?.startsWith("#")) return;
-
-                    e.preventDefault();
-                    document.body.classList.add("fade-out");
-
-                    setTimeout(() => {
-                        if (target.tagName === "A") {
-                            window.location = target.href;
-                        } else if (target.tagName === "FORM") {
-                            window.location = target.action;
-                        }
-                    }, 400); // mismo tiempo que .fade-out
-                });
-            });
-        });
-    </script>
-
-</body>
-
+  </body>
 </html>
